@@ -1,12 +1,77 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apresentação</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciador de Tarefas Acadêmicas — Quadro de Projetos</title>
 </head>
 <body>
-    <h1>Front End</h1>
-    <p>Raquel Aires - Estudante de Engenharia de Software</p>
+
+  <header>
+    <h1>Gerenciador de Tarefas Acadêmicas</h1>
+  </header>
+
+  <main>
+
+    <section aria-labelledby="filtros-heading">
+      <h2 id="filtros-heading">Busca e filtros</h2>
+
+      <form>
+        <div>
+          <label for="busca-titulo">Buscar por título da tarefa</label>
+          <input type="search" id="busca-titulo" name="busca-titulo">
+        </div>
+
+        <fieldset>
+          <legend>Filtrar por status</legend>
+
+          <div>
+            <input type="radio" id="status-todos" name="filtro-status" value="todos" checked>
+            <label for="status-todos">Todos</label>
+          </div>
+          <div>
+            <input type="radio" id="status-afazer" name="filtro-status" value="a-fazer">
+            <label for="status-afazer">A fazer</label>
+          </div>
+          <div>
+            <input type="radio" id="status-andamento" name="filtro-status" value="em-andamento">
+            <label for="status-andamento">Em andamento</label>
+          </div>
+          <div>
+            <input type="radio" id="status-revisao" name="filtro-status" value="em-revisao">
+            <label for="status-revisao">Em revisão</label>
+          </div>
+          <div>
+            <input type="radio" id="status-concluida" name="filtro-status" value="concluida">
+            <label for="status-concluida">Concluída</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Filtrar por prioridade</legend>
+
+          <div>
+            <input type="radio" id="prioridade-todas" name="filtro-prioridade" value="todas" checked>
+            <label for="prioridade-todas">Todas</label>
+          </div>
+          <div>
+            <input type="radio" id="prioridade-baixa" name="filtro-prioridade" value="baixa">
+            <label for="prioridade-baixa">Baixa</label>
+          </div>
+          <div>
+            <input type="radio" id="prioridade-media" name="filtro-prioridade" value="media">
+            <label for="prioridade-media">Média</label>
+          </div>
+          <div>
+            <input type="radio" id="prioridade-alta" name="filtro-prioridade" value="alta">
+            <label for="prioridade-alta">Alta</label>
+          </div>
+        </fieldset>
+
+        <button type="submit">Aplicar filtros</button>
+      </form>
+    </section>
+
+
 </body>
 </html>
