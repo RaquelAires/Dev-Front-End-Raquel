@@ -1,5 +1,4 @@
 :root {
-    /* Cores de superfície, texto e borda */
     --color-bg: #f5f1eb;
     --color-surface: #fffdf9;
     --color-surface-soft: #eee8df;
@@ -7,13 +6,11 @@
     --color-text-soft: #625c56;
     --color-border: #cfc5ba;
 
-    /* Uma cor para cada status */
     --status-todo: #55758e;
     --status-progress: #856f3f;
     --status-review: #705b8c;
     --status-done: #55745c;
 
-    /* Escala de espaçamento */
     --space-1: 0.4rem;
     --space-2: 0.75rem;
     --space-3: 1rem;
@@ -21,12 +18,10 @@
     --space-5: 2rem;
     --space-6: 3rem;
 
-    /* Raios */
     --radius-sm: 0.5rem;
     --radius-md: 0.9rem;
     --radius-lg: 1.25rem;
 
-    /* Sombra */
     --shadow-soft: 0 0.35rem 1.2rem rgba(72, 62, 53, 0.07);
 }
 
@@ -75,3 +70,66 @@ button {
     outline-offset: 0.2rem;
 }
 
+
+header {
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-6) var(--space-4) var(--space-5);
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+header::before,
+header::after {
+    position: absolute;
+    content: "";
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 0.15rem solid var(--status-review);
+    opacity: 0.18;
+    transform: rotate(45deg);
+}
+
+header::before {
+    top: 1.8rem;
+    right: 2rem;
+    border-radius: 0.2rem 0.7rem 0.2rem 0.7rem;
+}
+
+header::after {
+    top: 1.8rem;
+    right: 1.15rem;
+    border-radius: 0.7rem 0.2rem 0.7rem 0.2rem;
+}
+
+header h1 {
+    position: relative;
+    z-index: 1;
+    max-width: 75rem;
+    margin: 0 auto;
+    font-size: clamp(1.65rem, 4vw, 2.5rem);
+    font-weight: 700;
+}
+
+
+main {
+    display: grid;
+    gap: var(--space-5);
+    width: min(calc(100% - 2rem), 90rem);
+    margin: 0 auto;
+    padding: var(--space-4) 0 var(--space-6);
+}
+
+main > section:first-child {
+    min-width: 0;
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+main > section:first-child h2 {
+    margin: 0 0 var(--space-4);
+    font-size: 1.25rem;
+}
