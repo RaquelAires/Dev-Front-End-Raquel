@@ -133,3 +133,231 @@ main > section:first-child h2 {
     margin: 0 0 var(--space-4);
     font-size: 1.25rem;
 }
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+form > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+label,
+legend {
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+input[type="search"] {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+input[type="search"]:focus {
+    border-color: var(--status-review);
+}
+
+fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-3);
+    min-width: 0;
+    margin: 0;
+    padding: var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+legend {
+    padding: 0 var(--space-1);
+}
+
+fieldset > div {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    min-height: 2rem;
+}
+
+fieldset label {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+input[type="radio"] {
+    accent-color: var(--status-review);
+}
+
+form > button {
+    align-self: flex-start;
+    min-height: 2.75rem;
+    padding: var(--space-2) var(--space-4);
+    color: var(--color-surface);
+    background: var(--color-text);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+}
+
+main > section:not(:first-child) {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    padding: var(--space-4);
+    background: var(--color-surface-soft);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+main > section:not(:first-child) > h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-width: 0;
+    margin: 0 0 var(--space-3);
+    color: var(--color-text);
+    font-size: 1.1rem;
+}
+
+main > section:not(:first-child) > h2::before {
+    width: 0.65rem;
+    height: 0.65rem;
+    flex: 0 0 0.65rem;
+    content: "";
+    border-radius: 50%;
+}
+
+main > section:nth-of-type(2) > h2::before {
+    background: var(--status-todo);
+}
+
+main > section:nth-of-type(3) > h2::before {
+    background: var(--status-progress);
+}
+
+main > section:nth-of-type(4) > h2::before {
+    background: var(--status-review);
+}
+
+main > section:nth-of-type(5) > h2::before {
+    background: var(--status-done);
+}
+
+main > section:not(:first-child) > ul {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: var(--space-3);
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+main > section:not(:first-child) > ul > li {
+    min-width: 0;
+}
+
+
+article {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 13rem;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+}
+
+main > section:nth-of-type(2) article {
+    border-left: 0.3rem solid var(--status-todo);
+}
+
+main > section:nth-of-type(3) article {
+    border-left: 0.3rem solid var(--status-progress);
+}
+
+main > section:nth-of-type(4) article {
+    border-left: 0.3rem solid var(--status-review);
+}
+
+main > section:nth-of-type(5) article {
+    border-left: 0.3rem solid var(--status-done);
+}
+
+
+article h3 {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    margin: 0;
+    color: var(--color-text);
+    font-size: 1.05rem;
+    line-height: 1.35;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+article dl {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    min-width: 0;
+    margin: auto 0 0;
+}
+
+article dt {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+article dd {
+    min-width: 0;
+    margin: 0;
+    color: var(--color-text-soft);
+    font-size: 0.875rem;
+}
+
+article dd:first-of-type {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+article dd:nth-of-type(3) {
+    padding-top: var(--space-2);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-soft);
+}
+
+article dd:last-of-type {
+    align-self: flex-start;
+    min-width: 4rem;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    background: var(--color-surface-soft);
+    color: var(--status-progress);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-align: center;
+}
