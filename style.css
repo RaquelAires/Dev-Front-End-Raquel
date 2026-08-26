@@ -6,10 +6,10 @@
     --color-text-soft: #625c56;
     --color-border: #cfc5ba;
 
-    --status-todo: #55758e;
-    --status-progress: #856f3f;
-    --status-review: #705b8c;
-    --status-done: #55745c;
+    --status-todo: #46657a;
+    --status-progress: #725c27;
+    --status-review: #654f82;
+    --status-done: #46634e;
 
     --space-1: 0.4rem;
     --space-2: 0.75rem;
@@ -24,7 +24,6 @@
 
     --shadow-soft: 0 0.35rem 1.2rem rgba(72, 62, 53, 0.07);
 }
-
 
 *,
 *::before,
@@ -52,8 +51,8 @@ input {
 
 button,
 input[type="radio"] {
-    min-width: 24px;
-    min-height: 24px;
+    min-width: 1.5rem;
+    min-height: 1.5rem;
 }
 
 button,
@@ -69,7 +68,6 @@ button {
     outline: 0.15rem solid var(--color-text);
     outline-offset: 0.2rem;
 }
-
 
 header {
     position: relative;
@@ -111,9 +109,9 @@ header h1 {
     font-weight: 700;
 }
 
-
 main {
     display: grid;
+    grid-template-columns: 1fr;
     gap: var(--space-5);
     width: min(calc(100% - 2rem), 90rem);
     margin: 0 auto;
@@ -133,7 +131,6 @@ main > section:first-child h2 {
     margin: 0 0 var(--space-4);
     font-size: 1.25rem;
 }
-
 
 form {
     display: flex;
@@ -269,7 +266,6 @@ main > section:not(:first-child) > ul > li {
     min-width: 0;
 }
 
-
 article {
     display: flex;
     flex-direction: column;
@@ -298,7 +294,6 @@ main > section:nth-of-type(4) article {
 main > section:nth-of-type(5) article {
     border-left: 0.3rem solid var(--status-done);
 }
-
 
 article h3 {
     flex: 1;
@@ -360,4 +355,94 @@ article dd:last-of-type {
     font-size: 0.78rem;
     font-weight: 700;
     text-align: center;
+}
+
+footer {
+    padding: var(--space-5) var(--space-4);
+    color: var(--color-text-soft);
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+@media (min-width: 42rem) {
+    header {
+        padding-inline: var(--space-5);
+    }
+
+    main {
+        width: min(calc(100% - 3rem), 90rem);
+        padding-top: var(--space-5);
+    }
+
+    form {
+        display: grid;
+        grid-template-columns:
+            minmax(0, 1.2fr)
+            minmax(0, 1fr);
+        align-items: start;
+    }
+
+    form > div:first-child {
+        grid-column: 1 / -1;
+    }
+
+    form > button {
+        grid-column: 1 / -1;
+    }
+
+    main > section:not(:first-child) {
+        padding: var(--space-5);
+    }
+}
+
+@media (min-width: 64rem) {
+    main {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: var(--space-5);
+    }
+
+    main > section:first-child {
+        grid-column: 1 / -1;
+        padding: var(--space-5);
+    }
+
+    main > section:nth-child(2) {
+        grid-column: 1;
+    }
+
+    main > section:nth-child(3) {
+        grid-column: 2;
+    }
+
+    main > section:nth-child(4) {
+        grid-column: 3;
+    }
+
+    main > section:nth-child(5) {
+        grid-column: 4;
+    }
+}
+
+@media (min-width: 90rem) {
+    header {
+        padding-block: var(--space-6);
+    }
+
+    main {
+        width: min(calc(100% - 4rem), 96rem);
+    }
+
+    main > section:not(:first-child) {
+        padding: var(--space-5);
+    }
+
+    article {
+        min-height: 14rem;
+    }
 }
