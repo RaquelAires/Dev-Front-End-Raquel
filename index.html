@@ -22,25 +22,23 @@
 
   <main>
 
-    <!--
-      Região de status da aplicação.
-
-      Ela precisa existir desde o carregamento inicial
-      e começar vazia.
-    -->
     <div
       id="status"
       role="status"
       aria-live="polite"
     ></div>
 
+
     <section aria-labelledby="filtros-heading">
 
-      <h2 id="filtros-heading">Busca e filtros</h2>
+      <h2 id="filtros-heading">
+        Busca e filtros
+      </h2>
 
       <form>
 
         <div>
+
           <label for="busca-titulo">
             Buscar por título da tarefa
           </label>
@@ -50,13 +48,18 @@
             id="busca-titulo"
             name="busca-titulo"
           >
+
         </div>
+
 
         <fieldset>
 
-          <legend>Filtrar por status</legend>
+          <legend>
+            Filtrar por status
+          </legend>
 
           <div>
+
             <input
               type="radio"
               id="status-todos"
@@ -68,9 +71,12 @@
             <label for="status-todos">
               Todos
             </label>
+
           </div>
 
+
           <div>
+
             <input
               type="radio"
               id="status-afazer"
@@ -81,9 +87,12 @@
             <label for="status-afazer">
               A fazer
             </label>
+
           </div>
 
+
           <div>
+
             <input
               type="radio"
               id="status-andamento"
@@ -94,9 +103,12 @@
             <label for="status-andamento">
               Em andamento
             </label>
+
           </div>
 
+
           <div>
+
             <input
               type="radio"
               id="status-revisao"
@@ -107,9 +119,12 @@
             <label for="status-revisao">
               Em revisão
             </label>
+
           </div>
 
+
           <div>
+
             <input
               type="radio"
               id="status-concluida"
@@ -120,15 +135,21 @@
             <label for="status-concluida">
               Concluída
             </label>
+
           </div>
 
         </fieldset>
 
+
         <fieldset>
 
-          <legend>Filtrar por prioridade</legend>
+          <legend>
+            Filtrar por prioridade
+          </legend>
+
 
           <div>
+
             <input
               type="radio"
               id="prioridade-todas"
@@ -140,9 +161,12 @@
             <label for="prioridade-todas">
               Todas
             </label>
+
           </div>
 
+
           <div>
+
             <input
               type="radio"
               id="prioridade-baixa"
@@ -153,9 +177,12 @@
             <label for="prioridade-baixa">
               Baixa
             </label>
+
           </div>
 
+
           <div>
+
             <input
               type="radio"
               id="prioridade-media"
@@ -166,9 +193,12 @@
             <label for="prioridade-media">
               Média
             </label>
+
           </div>
 
+
           <div>
+
             <input
               type="radio"
               id="prioridade-alta"
@@ -179,9 +209,11 @@
             <label for="prioridade-alta">
               Alta
             </label>
+
           </div>
 
         </fieldset>
+
 
         <button type="submit">
           Aplicar filtros
@@ -191,11 +223,13 @@
 
     </section>
 
+
     <section aria-labelledby="coluna-afazer-heading">
 
       <h2 id="coluna-afazer-heading">
         A fazer
       </h2>
+
 
       <ul id="lista-afazer">
       </ul>
@@ -213,6 +247,7 @@
 
     </section>
 
+
     <section aria-labelledby="coluna-revisao-heading">
 
       <h2 id="coluna-revisao-heading">
@@ -223,6 +258,7 @@
       </ul>
 
     </section>
+
 
     <section aria-labelledby="coluna-concluida-heading">
 
@@ -236,6 +272,7 @@
     </section>
 
   </main>
+
 
   <footer>
 
