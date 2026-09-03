@@ -4,7 +4,10 @@
 <head>
   <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <link rel="stylesheet" href="style.css">
 
@@ -19,6 +22,18 @@
 
   <main>
 
+    <!--
+      Região de status da aplicação.
+
+      Ela precisa existir desde o carregamento inicial
+      e começar vazia.
+    -->
+    <div
+      id="status"
+      role="status"
+      aria-live="polite"
+    ></div>
+
     <section aria-labelledby="filtros-heading">
 
       <h2 id="filtros-heading">Busca e filtros</h2>
@@ -26,7 +41,9 @@
       <form>
 
         <div>
-          <label for="busca-titulo">Buscar por título da tarefa</label>
+          <label for="busca-titulo">
+            Buscar por título da tarefa
+          </label>
 
           <input
             type="search"
@@ -48,7 +65,9 @@
               checked
             >
 
-            <label for="status-todos">Todos</label>
+            <label for="status-todos">
+              Todos
+            </label>
           </div>
 
           <div>
@@ -59,7 +78,9 @@
               value="a-fazer"
             >
 
-            <label for="status-afazer">A fazer</label>
+            <label for="status-afazer">
+              A fazer
+            </label>
           </div>
 
           <div>
@@ -70,7 +91,9 @@
               value="em-andamento"
             >
 
-            <label for="status-andamento">Em andamento</label>
+            <label for="status-andamento">
+              Em andamento
+            </label>
           </div>
 
           <div>
@@ -81,7 +104,9 @@
               value="em-revisao"
             >
 
-            <label for="status-revisao">Em revisão</label>
+            <label for="status-revisao">
+              Em revisão
+            </label>
           </div>
 
           <div>
@@ -92,11 +117,12 @@
               value="concluida"
             >
 
-            <label for="status-concluida">Concluída</label>
+            <label for="status-concluida">
+              Concluída
+            </label>
           </div>
 
         </fieldset>
-
 
         <fieldset>
 
@@ -111,7 +137,9 @@
               checked
             >
 
-            <label for="prioridade-todas">Todas</label>
+            <label for="prioridade-todas">
+              Todas
+            </label>
           </div>
 
           <div>
@@ -122,7 +150,9 @@
               value="baixa"
             >
 
-            <label for="prioridade-baixa">Baixa</label>
+            <label for="prioridade-baixa">
+              Baixa
+            </label>
           </div>
 
           <div>
@@ -133,7 +163,9 @@
               value="media"
             >
 
-            <label for="prioridade-media">Média</label>
+            <label for="prioridade-media">
+              Média
+            </label>
           </div>
 
           <div>
@@ -144,12 +176,16 @@
               value="alta"
             >
 
-            <label for="prioridade-alta">Alta</label>
+            <label for="prioridade-alta">
+              Alta
+            </label>
           </div>
 
         </fieldset>
 
-        <button type="submit">Aplicar filtros</button>
+        <button type="submit">
+          Aplicar filtros
+        </button>
 
       </form>
 
@@ -157,359 +193,49 @@
 
     <section aria-labelledby="coluna-afazer-heading">
 
-      <h2 id="coluna-afazer-heading">A fazer</h2>
+      <h2 id="coluna-afazer-heading">
+        A fazer
+      </h2>
 
-      <ul>
-
-        <li>
-
-          <article aria-labelledby="tarefa-1-titulo">
-
-            <h3 id="tarefa-1-titulo">
-              Levantar requisitos do sistema de biblioteca
-            </h3>
-
-            <dl>
-
-              <dt>Projeto</dt>
-              <dd>
-                Sistema de Gestão de Biblioteca Acadêmica
-              </dd>
-
-              <dt>Responsável</dt>
-              <dd>Marina Costa</dd>
-
-              <dt>Prazo</dt>
-              <dd>
-                <time datetime="2026-08-20">
-                  20/08/2026
-                </time>
-              </dd>
-
-              <dt>Prioridade</dt>
-              <dd>Alta</dd>
-
-            </dl>
-
-          </article>
-
-        </li>
-
-
-        <li>
-
-          <article aria-labelledby="tarefa-2-titulo">
-
-            <h3 id="tarefa-2-titulo">
-              Escrever plano de testes da API de autenticação
-            </h3>
-
-            <dl>
-
-              <dt>Projeto</dt>
-              <dd>
-                Plataforma de Avaliações Online
-              </dd>
-
-              <dt>Responsável</dt>
-              <dd>Pedro Almeida</dd>
-
-              <dt>Prazo</dt>
-              <dd>
-                <time datetime="2026-08-25">
-                  25/08/2026
-                </time>
-              </dd>
-
-              <dt>Prioridade</dt>
-              <dd>Média</dd>
-
-            </dl>
-
-          </article>
-
-        </li>
-
-
-        <li>
-
-          <article aria-labelledby="tarefa-3-titulo">
-
-            <h3 id="tarefa-3-titulo">
-              Pesquisar bibliotecas de gráficos para o dashboard
-            </h3>
-
-            <dl>
-
-              <dt>Projeto</dt>
-              <dd>
-                Painel de Desempenho Acadêmico
-              </dd>
-
-              <dt>Responsável</dt>
-              <dd>Luiza Ferreira</dd>
-
-              <dt>Prazo</dt>
-              <dd>
-                <time datetime="2026-08-18">
-                  18/08/2026
-                </time>
-              </dd>
-
-              <dt>Prioridade</dt>
-              <dd>Baixa</dd>
-
-            </dl>
-
-          </article>
-
-        </li>
-
+      <ul id="lista-afazer">
       </ul>
 
     </section>
-
 
     <section aria-labelledby="coluna-andamento-heading">
 
-      <h2 id="coluna-andamento-heading">Em andamento</h2>
+      <h2 id="coluna-andamento-heading">
+        Em andamento
+      </h2>
 
-      <ul>
-
-        <li>
-
-          <article aria-labelledby="tarefa-4-titulo">
-
-            <h3 id="tarefa-4-titulo">
-              Modelar o banco de dados de empréstimos
-            </h3>
-
-            <dl>
-
-              <dt>Projeto</dt>
-              <dd>
-                Sistema de Gestão de Biblioteca Acadêmica
-              </dd>
-
-              <dt>Responsável</dt>
-              <dd>Rafael Souza</dd>
-
-              <dt>Prazo</dt>
-              <dd>
-                <time datetime="2026-08-22">
-                  22/08/2026
-                </time>
-              </dd>
-
-              <dt>Prioridade</dt>
-              <dd>Alta</dd>
-
-            </dl>
-
-          </article>
-
-        </li>
-
-
-        <li>
-
-          <article aria-labelledby="tarefa-5-titulo">
-
-            <h3 id="tarefa-5-titulo">
-              Implementar tela de login
-            </h3>
-
-            <dl>
-
-              <dt>Projeto</dt>
-              <dd>
-                Plataforma de Avaliações Online
-              </dd>
-
-              <dt>Responsável</dt>
-              <dd>Pedro Almeida</dd>
-
-              <dt>Prazo</dt>
-              <dd>
-                <time datetime="2026-08-19">
-                  19/08/2026
-                </time>
-              </dd>
-
-              <dt>Prioridade</dt>
-              <dd>Média</dd>
-
-            </dl>
-
-          </article>
-
-        </li>
-
+      <ul id="lista-andamento">
       </ul>
 
     </section>
 
-
     <section aria-labelledby="coluna-revisao-heading">
 
-      <h2 id="coluna-revisao-heading">Em revisão</h2>
+      <h2 id="coluna-revisao-heading">
+        Em revisão
+      </h2>
 
-      <ul>
-
-        <li>
-
-          <article aria-labelledby="tarefa-6-titulo">
-
-            <h3 id="tarefa-6-titulo">
-              Revisar wireframes do painel de desempenho
-            </h3>
-
-            <dl>
-
-              <dt>Projeto</dt>
-              <dd>
-                Painel de Desempenho Acadêmico
-              </dd>
-
-              <dt>Responsável</dt>
-              <dd>Luiza Ferreira</dd>
-
-              <dt>Prazo</dt>
-              <dd>
-                <time datetime="2026-08-15">
-                  15/08/2026
-                </time>
-              </dd>
-
-              <dt>Prioridade</dt>
-              <dd>Média</dd>
-
-            </dl>
-
-          </article>
-
-        </li>
-
-
-        <li>
-
-          <article aria-labelledby="tarefa-7-titulo">
-
-            <h3 id="tarefa-7-titulo">
-              Validar fluxo de recuperação de senha
-            </h3>
-
-            <dl>
-
-              <dt>Projeto</dt>
-              <dd>
-                Plataforma de Avaliações Online
-              </dd>
-
-              <dt>Responsável</dt>
-              <dd>Marina Costa</dd>
-
-              <dt>Prazo</dt>
-              <dd>
-                <time datetime="2026-08-17">
-                  17/08/2026
-                </time>
-              </dd>
-
-              <dt>Prioridade</dt>
-              <dd>Baixa</dd>
-
-            </dl>
-
-          </article>
-
-        </li>
-
+      <ul id="lista-revisao">
       </ul>
 
     </section>
 
     <section aria-labelledby="coluna-concluida-heading">
 
-      <h2 id="coluna-concluida-heading">Concluída</h2>
+      <h2 id="coluna-concluida-heading">
+        Concluída
+      </h2>
 
-      <ul>
-
-        <li>
-
-          <article aria-labelledby="tarefa-8-titulo">
-
-            <h3 id="tarefa-8-titulo">
-              Definir cronograma geral do bloco
-            </h3>
-
-            <dl>
-
-              <dt>Projeto</dt>
-              <dd>
-                Sistema de Gestão de Biblioteca Acadêmica
-              </dd>
-
-              <dt>Responsável</dt>
-              <dd>Rafael Souza</dd>
-
-              <dt>Prazo</dt>
-              <dd>
-                <time datetime="2026-08-10">
-                  10/08/2026
-                </time>
-              </dd>
-
-              <dt>Prioridade</dt>
-              <dd>Alta</dd>
-
-            </dl>
-
-          </article>
-
-        </li>
-
-
-        <li>
-
-          <article aria-labelledby="tarefa-9-titulo">
-
-            <h3 id="tarefa-9-titulo">
-              Criar repositório e estrutura inicial dos projetos
-            </h3>
-
-            <dl>
-
-              <dt>Projeto</dt>
-              <dd>
-                Painel de Desempenho Acadêmico
-              </dd>
-
-              <dt>Responsável</dt>
-              <dd>Luiza Ferreira</dd>
-
-              <dt>Prazo</dt>
-              <dd>
-                <time datetime="2026-08-09">
-                  09/08/2026
-                </time>
-              </dd>
-
-              <dt>Prioridade</dt>
-              <dd>Baixa</dd>
-
-            </dl>
-
-          </article>
-
-        </li>
-
+      <ul id="lista-concluida">
       </ul>
 
     </section>
 
   </main>
-
 
   <footer>
 
@@ -519,6 +245,11 @@
 
   </footer>
 
-</body> 
+  <script
+    type="module"
+    src="./js/main.js"
+  ></script>
+
+</body>
 
 </html>
