@@ -2,75 +2,75 @@
     "tarefas": [
         {
             "id": 1,
-            "titulo": "Levantar requisitos do sistema de biblioteca",
-            "status": "a-fazer",
-            "projeto": "Sistema de Gestão de Biblioteca Acadêmica",
-            "responsavel": "Marina Costa",
-            "prazo": "20/09/2026",
-            "prioridade": "alta"
+            "titulo": "Estudar Flexbox",
+            "status": "concluida",
+            "prioridade": "alta",
+            "projeto": "Desenvolvimento Frontend",
+            "responsavel": "Raquel",
+            "prazo": "2026-09-05"
         },
         {
             "id": 2,
-            "titulo": "Escrever plano de testes da API de autenticação",
-            "status": "a-fazer",
-            "projeto": "Plataforma de Avaliações Online",
-            "responsavel": "Pedro Almeida",
-            "prazo": "25/09/2026",
-            "prioridade": "media"
+            "titulo": "Implementar busca de tarefas",
+            "status": "andamento",
+            "prioridade": "alta",
+            "projeto": "Gerenciador Acadêmico",
+            "responsavel": "Raquel",
+            "prazo": "2026-09-12"
         },
         {
             "id": 3,
-            "titulo": "Pesquisar bibliotecas de gráficos para o dashboard",
-            "status": "em-andamento",
-            "projeto": "Painel de Desempenho Acadêmico",
-            "responsavel": "Luiza Ferreira",
-            "prazo": "18/09/2026",
-            "prioridade": "baixa"
+            "titulo": "Criar filtro por prioridade",
+            "status": "andamento",
+            "prioridade": "media",
+            "projeto": "Gerenciador Acadêmico",
+            "responsavel": "Raquel",
+            "prazo": "2026-09-13"
         },
         {
             "id": 4,
-            "titulo": "Modelar o banco de dados de empréstimos",
-            "status": "em-andamento",
-            "projeto": "Sistema de Gestão de Biblioteca Acadêmica",
-            "responsavel": "Rafael Souza",
-            "prazo": "22/09/2026",
-            "prioridade": "alta"
+            "titulo": "Revisar documentação do projeto",
+            "status": "revisao",
+            "prioridade": "baixa",
+            "projeto": "Engenharia de Software",
+            "responsavel": "Raquel",
+            "prazo": "2026-09-15"
         },
         {
             "id": 5,
-            "titulo": "Implementar tela de login",
-            "status": "em-revisao",
-            "projeto": "Plataforma de Avaliações Online",
-            "responsavel": "Pedro Almeida",
-            "prazo": "19/09/2026",
-            "prioridade": "media"
+            "titulo": "Finalizar relatório acadêmico",
+            "status": "afazer",
+            "prioridade": "alta",
+            "projeto": "Projeto Integrador",
+            "responsavel": "Raquel",
+            "prazo": "2026-09-16"
         },
         {
             "id": 6,
-            "titulo": "Revisar wireframes do painel de desempenho",
-            "status": "em-revisao",
-            "projeto": "Painel de Desempenho Acadêmico",
-            "responsavel": "Luiza Ferreira",
-            "prazo": "15/09/2026",
-            "prioridade": "media"
+            "titulo": "Testar estados da aplicação",
+            "status": "revisao",
+            "prioridade": "media",
+            "projeto": "Gerenciador Acadêmico",
+            "responsavel": "Raquel",
+            "prazo": "2026-09-17"
         },
         {
             "id": 7,
-            "titulo": "Definir cronograma geral do bloco",
-            "status": "concluida",
-            "projeto": "Sistema de Gestão de Biblioteca Acadêmica",
-            "responsavel": "Rafael Souza",
-            "prazo": "10/09/2026",
-            "prioridade": "alta"
+            "titulo": "Organizar apresentação",
+            "status": "afazer",
+            "prioridade": "media",
+            "projeto": "Projeto Integrador",
+            "responsavel": "Raquel",
+            "prazo": "2026-09-18"
         },
         {
             "id": 8,
-            "titulo": "Criar repositório e estrutura inicial dos projetos",
-            "status": "concluida",
-            "projeto": "Painel de Desempenho Acadêmico",
-            "responsavel": "Luiza Ferreira",
-            "prazo": "09/09/2026",
-            "prioridade": "baixa"
+            "titulo": "Publicar projeto no GitHub Pages",
+            "status": "afazer",
+            "prioridade": "alta",
+            "projeto": "Desenvolvimento Frontend",
+            "responsavel": "Raquel",
+            "prazo": "2026-09-19"
         }
     ]
 }
