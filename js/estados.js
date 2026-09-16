@@ -1,65 +1,50 @@
-export function renderizarEstado(estado, dados = {}) {
+export function renderizarEstado(estadoAtual, dados = {}) {
 
-    const status = document.querySelector("#status");
+    const elementoStatus =
+        document.querySelector("#status");
 
-    status.textContent = "";
 
-    const caixa = document.createElement("div");
+    if (estadoAtual === "carregando") {
 
-    caixa.className = "estado";
+        elementoStatus.textContent =
+            "Carregando tarefas...";
 
-    const titulo = document.createElement("h2");
-
-    const mensagem = document.createElement("p");
-
-    if (estado === "carregando") {
-
-        caixa.classList.add("estado--carregando");
-
-        titulo.textContent = "Carregando tarefas...";
-
-        mensagem.textContent =
-            "Aguarde enquanto os dados são carregados.";
-
+        return;
     }
 
-    else if (estado === "sucesso") {
 
-        caixa.classList.add("estado--sucesso");
+    if (estadoAtual === "erro") {
 
-        titulo.textContent = "Tarefas carregadas";
+        elementoStatus.textContent =
+            dados.mensagem;
 
-        mensagem.textContent =
-            `${dados.quantidade} tarefa(s) carregada(s) com sucesso.`;
-
+        return;
     }
 
-    else if (estado === "vazio") {
 
-        caixa.classList.add("estado--vazio");
+    if (estadoAtual === "vazio") {
 
-        titulo.textContent = "Nenhuma tarefa encontrada";
+        elementoStatus.textContent =
+            "Não há tarefas cadastradas na origem de dados.";
 
-        mensagem.textContent =
-            "Não existem tarefas cadastradas no momento.";
-
+        return;
     }
 
-    else if (estado === "erro") {
 
-        caixa.classList.add("estado--erro");
+    if (estadoAtual === "sem-resultados") {
 
-        titulo.textContent =
-            "Não foi possível carregar as tarefas";
+        elementoStatus.textContent =
+            "Nenhuma tarefa corresponde aos critérios. Altere ou limpe os filtros.";
 
-        mensagem.textContent =
-            dados.mensagem || "Ocorreu um erro inesperado.";
-
+        return;
     }
 
-    caixa.appendChild(titulo);
 
-    caixa.appendChild(mensagem);
+    if (estadoAtual === "sucesso") {
 
-    status.appendChild(caixa);
+        elementoStatus.textContent =
+            `${dados.quantidade} de ${dados.total} tarefas.`;
+
+        return;
+    }
 }

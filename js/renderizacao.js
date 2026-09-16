@@ -1,108 +1,94 @@
 export function renderizarTarefas(tarefas) {
 
-    const listas = {
+    const listaAfazer =
+        document.querySelector("#lista-afazer");
 
-        "a-fazer":
-            document.querySelector("#lista-afazer"),
+    const listaAndamento =
+        document.querySelector("#lista-andamento");
 
-        "em-andamento":
-            document.querySelector("#lista-andamento"),
+    const listaRevisao =
+        document.querySelector("#lista-revisao");
 
-        "em-revisao":
-            document.querySelector("#lista-revisao"),
+    const listaConcluida =
+        document.querySelector("#lista-concluida");
 
-        "concluida":
-            document.querySelector("#lista-concluida")
 
-    };
+    listaAfazer.replaceChildren();
+    listaAndamento.replaceChildren();
+    listaRevisao.replaceChildren();
+    listaConcluida.replaceChildren();
 
-    Object.values(listas).forEach(lista => {
 
-        lista.textContent = "";
+    tarefas.forEach(function(tarefa) {
 
-    });
+        const li =
+            document.createElement("li");
 
-    tarefas.forEach(tarefa => {
+        const article =
+            document.createElement("article");
 
-        const lista = listas[tarefa.status];
 
-        if (!lista) {
-            return;
-        }
+        const titulo =
+            document.createElement("h3");
 
-        const li = document.createElement("li");
+        titulo.textContent =
+            tarefa.titulo;
 
-        const article = document.createElement("article");
 
-        article.setAttribute(
-            "aria-labelledby",
-            `tarefa-${tarefa.id}-titulo`
-        );
+        const projeto =
+            document.createElement("p");
 
-        const h3 = document.createElement("h3");
+        projeto.textContent =
+            `Projeto: ${tarefa.projeto}`;
 
-        h3.id = `tarefa-${tarefa.id}-titulo`;
 
-        h3.textContent = tarefa.titulo;
+        const responsavel =
+            document.createElement("p");
 
-        const dl = document.createElement("dl");
+        responsavel.textContent =
+            `Responsável: ${tarefa.responsavel}`;
 
-        const dtProjeto = document.createElement("dt");
 
-        dtProjeto.textContent = "Projeto";
+        const prazo =
+            document.createElement("p");
 
-        const ddProjeto = document.createElement("dd");
+        prazo.textContent =
+            `Prazo: ${tarefa.prazo}`;
 
-        ddProjeto.textContent = tarefa.projeto;
 
-        const dtResponsavel = document.createElement("dt");
+        const prioridade =
+            document.createElement("p");
 
-        dtResponsavel.textContent = "Responsável";
+        prioridade.textContent =
+            `Prioridade: ${tarefa.prioridade}`;
 
-        const ddResponsavel = document.createElement("dd");
 
-        ddResponsavel.textContent = tarefa.responsavel;
+        article.appendChild(titulo);
+        article.appendChild(projeto);
+        article.appendChild(responsavel);
+        article.appendChild(prazo);
+        article.appendChild(prioridade);
 
-        const dtPrazo = document.createElement("dt");
-
-        dtPrazo.textContent = "Prazo";
-
-        const ddPrazo = document.createElement("dd");
-
-        const time = document.createElement("time");
-
-        time.textContent = tarefa.prazo;
-
-        ddPrazo.appendChild(time);
-
-        const dtPrioridade = document.createElement("dt");
-
-        dtPrioridade.textContent = "Prioridade";
-
-        const ddPrioridade = document.createElement("dd");
-
-        ddPrioridade.textContent =
-            tarefa.prioridade;
-
-        dl.appendChild(dtProjeto);
-        dl.appendChild(ddProjeto);
-
-        dl.appendChild(dtResponsavel);
-        dl.appendChild(ddResponsavel);
-
-        dl.appendChild(dtPrazo);
-        dl.appendChild(ddPrazo);
-
-        dl.appendChild(dtPrioridade);
-        dl.appendChild(ddPrioridade);
-
-        article.appendChild(h3);
-
-        article.appendChild(dl);
 
         li.appendChild(article);
 
-        lista.appendChild(li);
+
+        if (tarefa.status === "afazer") {
+
+            listaAfazer.appendChild(li);
+
+        } else if (tarefa.status === "andamento") {
+
+            listaAndamento.appendChild(li);
+
+        } else if (tarefa.status === "revisao") {
+
+            listaRevisao.appendChild(li);
+
+        } else if (tarefa.status === "concluida") {
+
+            listaConcluida.appendChild(li);
+        }
 
     });
 }

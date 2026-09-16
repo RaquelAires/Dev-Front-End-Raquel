@@ -2,11 +2,6 @@ import { carregarTarefas } from "./api.js";
 import { renderizarEstado } from "./estados.js";
 import { renderizarTarefas } from "./renderizacao.js";
 
-
-/* =========================================================
-   ESTADO ÚNICO DA APLICAÇÃO
-   ========================================================= */
-
 const estado = {
 
     tarefas: [],
@@ -24,11 +19,6 @@ const estado = {
     erro: null
 };
 
-
-/* =========================================================
-   ELEMENTOS DOS CONTROLES
-   ========================================================= */
-
 const campoBusca =
     document.querySelector("#busca");
 
@@ -44,27 +34,9 @@ const filtroOrdenacao =
 const botaoLimpar =
     document.querySelector("#limpar-filtros");
 
-
-/* =========================================================
-   DERIVAÇÃO
-   ========================================================= */
-
-/*
-    Esta função recebe o estado e devolve
-    somente as tarefas que devem aparecer.
-
-    Ela NÃO consulta o DOM.
-    Ela NÃO altera estado.tarefas.
-*/
-
 function derivarTarefas(estado) {
 
     let tarefasVisiveis = [...estado.tarefas];
-
-
-    /* -------------------------
-       BUSCA
-       ------------------------- */
 
     if (estado.busca !== "") {
 
@@ -81,11 +53,6 @@ function derivarTarefas(estado) {
             });
     }
 
-
-    /* -------------------------
-       FILTRO DE STATUS
-       ------------------------- */
-
     if (estado.status !== "todos") {
 
         tarefasVisiveis =
@@ -96,11 +63,6 @@ function derivarTarefas(estado) {
             });
     }
 
-
-    /* -------------------------
-       FILTRO DE PRIORIDADE
-       ------------------------- */
-
     if (estado.prioridade !== "todas") {
 
         tarefasVisiveis =
@@ -110,11 +72,6 @@ function derivarTarefas(estado) {
 
             });
     }
-
-
-    /* -------------------------
-       ORDENAÇÃO
-       ------------------------- */
 
     if (estado.ordenacao === "mais-proximo") {
 
@@ -141,24 +98,10 @@ function derivarTarefas(estado) {
     return tarefasVisiveis;
 }
 
-
-/* =========================================================
-   CICLO ÚNICO DE ATUALIZAÇÃO
-   ========================================================= */
-
 function atualizarTela() {
-
-    /*
-        A lista é derivada UMA VEZ por ciclo.
-    */
 
     const tarefasVisiveis =
         derivarTarefas(estado);
-
-
-    /* -------------------------
-       CARREGANDO
-       ------------------------- */
 
     if (estado.carregamento === "carregando") {
 
@@ -167,10 +110,6 @@ function atualizarTela() {
         return;
     }
 
-
-    /* -------------------------
-       ERRO
-       ------------------------- */
 
     if (estado.carregamento === "erro") {
 
@@ -181,11 +120,6 @@ function atualizarTela() {
         return;
     }
 
-
-    /* -------------------------
-       ORIGEM VAZIA
-       ------------------------- */
-
     if (estado.tarefas.length === 0) {
 
         renderizarTarefas([]);
@@ -194,11 +128,6 @@ function atualizarTela() {
 
         return;
     }
-
-
-    /* -------------------------
-       RESULTADO VAZIO
-       ------------------------- */
 
     if (tarefasVisiveis.length === 0) {
 
@@ -210,11 +139,6 @@ function atualizarTela() {
 
         return;
     }
-
-
-    /* -------------------------
-       SUCESSO
-       ------------------------- */
 
     renderizarTarefas(tarefasVisiveis);
 
@@ -229,11 +153,6 @@ function atualizarTela() {
     });
 }
 
-
-/* =========================================================
-   BUSCA
-   ========================================================= */
-
 campoBusca.addEventListener("input", function() {
 
     estado.busca =
@@ -242,11 +161,6 @@ campoBusca.addEventListener("input", function() {
     atualizarTela();
 
 });
-
-
-/* =========================================================
-   FILTRO DE STATUS
-   ========================================================= */
 
 filtroStatus.addEventListener("change", function() {
 
@@ -257,11 +171,6 @@ filtroStatus.addEventListener("change", function() {
 
 });
 
-
-/* =========================================================
-   FILTRO DE PRIORIDADE
-   ========================================================= */
-
 filtroPrioridade.addEventListener("change", function() {
 
     estado.prioridade =
@@ -271,11 +180,6 @@ filtroPrioridade.addEventListener("change", function() {
 
 });
 
-
-/* =========================================================
-   ORDENAÇÃO
-   ========================================================= */
-
 filtroOrdenacao.addEventListener("change", function() {
 
     estado.ordenacao =
@@ -284,11 +188,6 @@ filtroOrdenacao.addEventListener("change", function() {
     atualizarTela();
 
 });
-
-
-/* =========================================================
-   LIMPAR FILTROS
-   ========================================================= */
 
 botaoLimpar.addEventListener("click", function() {
 
@@ -314,11 +213,6 @@ botaoLimpar.addEventListener("click", function() {
 
 });
 
-
-/* =========================================================
-   CARREGAMENTO INICIAL
-   ========================================================= */
-
 async function iniciarAplicacao() {
 
     estado.carregamento =
@@ -335,12 +229,6 @@ async function iniciarAplicacao() {
 
         const tarefas =
             await carregarTarefas();
-
-
-        /*
-            O array original fica armazenado
-            somente no estado.
-        */
 
         estado.tarefas =
             tarefas;
