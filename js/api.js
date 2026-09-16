@@ -8,5 +8,9 @@ export async function carregarTarefas() {
 
     const dados = await resposta.json();
 
+    if (!dados || !Array.isArray(dados.tarefas)) {
+        throw new SyntaxError("O arquivo JSON não possui uma lista de tarefas válida.");
+    }
+
     return dados.tarefas;
 }

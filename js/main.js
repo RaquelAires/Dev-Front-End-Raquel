@@ -2,6 +2,7 @@ import { carregarTarefas } from "./api.js";
 import { renderizarEstado } from "./estados.js";
 import { renderizarTarefas } from "./renderizacao.js";
 
+
 const estado = {
 
     tarefas: [],
@@ -19,61 +20,64 @@ const estado = {
     erro: null
 };
 
+
 const campoBusca =
     document.querySelector("#busca");
+
 
 const filtroStatus =
     document.querySelector("#filtro-status");
 
+
 const filtroPrioridade =
     document.querySelector("#filtro-prioridade");
+
 
 const filtroOrdenacao =
     document.querySelector("#ordenacao");
 
+
 const botaoLimpar =
     document.querySelector("#limpar-filtros");
 
-function derivarTarefas(estado) {
 
-    let tarefasVisiveis = [...estado.tarefas];
+function derivarTarefas(estadoAtual) {
 
-    if (estado.busca !== "") {
+    let tarefasVisiveis =
+        estadoAtual.tarefas.filter(function(tarefa) {
 
-        const termo =
-            estado.busca.toLowerCase();
+            const termo =
+                estadoAtual.busca.toLocaleLowerCase();
 
-        tarefasVisiveis =
-            tarefasVisiveis.filter(function(tarefa) {
 
-                return tarefa.titulo
-                    .toLowerCase()
-                    .includes(termo);
+            const titulo =
+                tarefa.titulo.toLocaleLowerCase();
 
-            });
-    }
 
-    if (estado.status !== "todos") {
+            const correspondeBusca =
+                termo === "" || titulo.includes(termo);
 
-        tarefasVisiveis =
-            tarefasVisiveis.filter(function(tarefa) {
 
-                return tarefa.status === estado.status;
+            const correspondeStatus =
+                estadoAtual.status === "todos" ||
+                tarefa.status === estadoAtual.status;
 
-            });
-    }
 
-    if (estado.prioridade !== "todas") {
+            const correspondePrioridade =
+                estadoAtual.prioridade === "todas" ||
+                tarefa.prioridade === estadoAtual.prioridade;
 
-        tarefasVisiveis =
-            tarefasVisiveis.filter(function(tarefa) {
 
-                return tarefa.prioridade === estado.prioridade;
+            return (
+                correspondeBusca &&
+                correspondeStatus &&
+                correspondePrioridade
+            );
 
-            });
-    }
+        });
 
-    if (estado.ordenacao === "mais-proximo") {
+
+    if (estadoAtual.ordenacao === "mais-proximo") {
 
         tarefasVisiveis.sort(function(a, b) {
 
@@ -84,7 +88,7 @@ function derivarTarefas(estado) {
     }
 
 
-    if (estado.ordenacao === "mais-distante") {
+    if (estadoAtual.ordenacao === "mais-distante") {
 
         tarefasVisiveis.sort(function(a, b) {
 
@@ -98,12 +102,42 @@ function derivarTarefas(estado) {
     return tarefasVisiveis;
 }
 
+
+function sincronizarControles() {
+
+    if (campoBusca.value !== estado.busca) {
+        campoBusca.value = estado.busca;
+    }
+
+
+    if (filtroStatus.value !== estado.status) {
+        filtroStatus.value = estado.status;
+    }
+
+
+    if (filtroPrioridade.value !== estado.prioridade) {
+        filtroPrioridade.value = estado.prioridade;
+    }
+
+
+    if (filtroOrdenacao.value !== estado.ordenacao) {
+        filtroOrdenacao.value = estado.ordenacao;
+    }
+}
+
+
 function atualizarTela() {
+
+    sincronizarControles();
+
 
     const tarefasVisiveis =
         derivarTarefas(estado);
 
+
     if (estado.carregamento === "carregando") {
+
+        renderizarTarefas([]);
 
         renderizarEstado("carregando");
 
@@ -113,12 +147,18 @@ function atualizarTela() {
 
     if (estado.carregamento === "erro") {
 
+        renderizarTarefas([]);
+
         renderizarEstado("erro", {
-            mensagem: estado.erro
+
+            mensagem:
+                estado.erro
+
         });
 
         return;
     }
+
 
     if (estado.tarefas.length === 0) {
 
@@ -129,18 +169,19 @@ function atualizarTela() {
         return;
     }
 
+
     if (tarefasVisiveis.length === 0) {
 
         renderizarTarefas([]);
 
-        renderizarEstado("sem-resultados", {
-            total: estado.tarefas.length
-        });
+        renderizarEstado("sem-resultados");
 
         return;
     }
 
+
     renderizarTarefas(tarefasVisiveis);
+
 
     renderizarEstado("sucesso", {
 
@@ -153,6 +194,7 @@ function atualizarTela() {
     });
 }
 
+
 campoBusca.addEventListener("input", function() {
 
     estado.busca =
@@ -161,6 +203,7 @@ campoBusca.addEventListener("input", function() {
     atualizarTela();
 
 });
+
 
 filtroStatus.addEventListener("change", function() {
 
@@ -171,6 +214,7 @@ filtroStatus.addEventListener("change", function() {
 
 });
 
+
 filtroPrioridade.addEventListener("change", function() {
 
     estado.prioridade =
@@ -180,6 +224,7 @@ filtroPrioridade.addEventListener("change", function() {
 
 });
 
+
 filtroOrdenacao.addEventListener("change", function() {
 
     estado.ordenacao =
@@ -188,6 +233,7 @@ filtroOrdenacao.addEventListener("change", function() {
     atualizarTela();
 
 });
+
 
 botaoLimpar.addEventListener("click", function() {
 
@@ -199,19 +245,10 @@ botaoLimpar.addEventListener("click", function() {
 
     estado.ordenacao = "nenhuma";
 
-
-    campoBusca.value = "";
-
-    filtroStatus.value = "todos";
-
-    filtroPrioridade.value = "todas";
-
-    filtroOrdenacao.value = "nenhuma";
-
-
     atualizarTela();
 
 });
+
 
 async function iniciarAplicacao() {
 
@@ -230,12 +267,14 @@ async function iniciarAplicacao() {
         const tarefas =
             await carregarTarefas();
 
+
         estado.tarefas =
             tarefas;
 
 
         estado.carregamento =
             "concluido";
+
 
         estado.erro =
             null;
@@ -258,7 +297,7 @@ async function iniciarAplicacao() {
         } else if (erro.name === "SyntaxError") {
 
             estado.erro =
-                "Erro de formato. O arquivo JSON está inválido.";
+                "Erro de formato. O arquivo JSON está inválido ou não possui a estrutura esperada.";
 
         } else if (
             typeof erro.message === "string" &&
@@ -272,7 +311,6 @@ async function iniciarAplicacao() {
 
             estado.erro =
                 "Ocorreu um erro inesperado ao carregar as tarefas.";
-
         }
 
 
