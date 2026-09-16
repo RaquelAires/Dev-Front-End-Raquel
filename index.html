@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -17,29 +19,47 @@
     <title>
         Gerenciador de Tarefas Acadêmicas — Quadro de Projetos
     </title>
+
 </head>
 
 <body>
 
     <header>
-        <h1>
-            Gerenciador de Tarefas Acadêmicas
-        </h1>
+
+        <!-- Imagem usada como fundo do cabeçalho -->
+        <div class="imagem-cabecalho">
+
+            <img
+                src="flower.png"
+                alt=""
+                aria-hidden="true"
+            >
+
+        </div>
+
+        <!-- Conteúdo do cabeçalho -->
+        <div class="cabecalho-conteudo">
+
+            <h1>
+                Gerenciador de Tarefas Acadêmicas
+            </h1>
+
+        </div>
+
     </header>
 
 
     <main>
 
-        <!-- BUSCA E FILTROS -->
+        <!-- =========================================
+             BUSCA E FILTROS
+             ========================================= -->
 
         <section aria-labelledby="filtros-heading">
 
             <h2 id="filtros-heading">
                 Busca e filtros
             </h2>
-
-
-            <!-- MENSAGEM DE STATUS -->
 
             <div
                 id="status"
@@ -50,7 +70,7 @@
 
             <form id="form-filtros">
 
-                <!-- BUSCA -->
+                <!-- Busca por título -->
 
                 <div>
 
@@ -68,7 +88,7 @@
                 </div>
 
 
-                <!-- STATUS -->
+                <!-- Filtro por status -->
 
                 <div>
 
@@ -106,7 +126,7 @@
                 </div>
 
 
-                <!-- PRIORIDADE -->
+                <!-- Filtro por prioridade -->
 
                 <div>
 
@@ -140,7 +160,7 @@
                 </div>
 
 
-                <!-- ORDENAÇÃO -->
+                <!-- Ordenação -->
 
                 <div>
 
@@ -170,7 +190,7 @@
                 </div>
 
 
-                <!-- LIMPAR -->
+                <!-- Botão -->
 
                 <button
                     type="button"
@@ -184,9 +204,13 @@
         </section>
 
 
-        <!-- A FAZER -->
+        <!-- =========================================
+             A FAZER
+             ========================================= -->
 
-        <section aria-labelledby="coluna-afazer-heading">
+        <section
+            aria-labelledby="coluna-afazer-heading"
+        >
 
             <h2 id="coluna-afazer-heading">
                 A fazer
@@ -197,9 +221,13 @@
         </section>
 
 
-        <!-- EM ANDAMENTO -->
+        <!-- =========================================
+             EM ANDAMENTO
+             ========================================= -->
 
-        <section aria-labelledby="coluna-andamento-heading">
+        <section
+            aria-labelledby="coluna-andamento-heading"
+        >
 
             <h2 id="coluna-andamento-heading">
                 Em andamento
@@ -210,9 +238,13 @@
         </section>
 
 
-        <!-- EM REVISÃO -->
+        <!-- =========================================
+             EM REVISÃO
+             ========================================= -->
 
-        <section aria-labelledby="coluna-revisao-heading">
+        <section
+            aria-labelledby="coluna-revisao-heading"
+        >
 
             <h2 id="coluna-revisao-heading">
                 Em revisão
@@ -223,9 +255,13 @@
         </section>
 
 
-        <!-- CONCLUÍDA -->
+        <!-- =========================================
+             CONCLUÍDA
+             ========================================= -->
 
-        <section aria-labelledby="coluna-concluida-heading">
+        <section
+            aria-labelledby="coluna-concluida-heading"
+        >
 
             <h2 id="coluna-concluida-heading">
                 Concluída
@@ -238,6 +274,10 @@
     </main>
 
 
+    <!-- =========================================
+         RODAPÉ
+         ========================================= -->
+
     <footer>
 
         <p>
@@ -246,6 +286,10 @@
 
     </footer>
 
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
 
     <script
         type="module"
