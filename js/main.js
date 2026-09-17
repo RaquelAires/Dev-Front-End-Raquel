@@ -235,6 +235,46 @@ filtroOrdenacao.addEventListener("change", function() {
 });
 
 
+function criarEfeitoClique() {
+
+    const quantidade = 12;
+
+    for (let i = 0; i < quantidade; i++) {
+
+        const elemento = document.createElement("span");
+
+        const tipos = ["𖦹", "🩷", "🌸","🪷"];
+
+        elemento.className = "particula-clique";
+        elemento.textContent =
+            tipos[Math.floor(Math.random() * tipos.length)];
+
+        elemento.style.left =
+            (10 + Math.random() * 80) + "%";
+
+        elemento.style.setProperty(
+            "--deslocamento-x",
+            ((Math.random() * 180) - 90) + "px"
+        );
+
+        elemento.style.setProperty(
+            "--duracao",
+            (1.8 + Math.random() * 1.4) + "s"
+        );
+
+        elemento.style.setProperty(
+            "--atraso",
+            (Math.random() * 0.25) + "s"
+        );
+
+        document.body.appendChild(elemento);
+
+        elemento.addEventListener("animationend", function() {
+            elemento.remove();
+        });
+    }
+}
+
 botaoLimpar.addEventListener("click", function() {
 
     estado.busca = "";
@@ -244,6 +284,8 @@ botaoLimpar.addEventListener("click", function() {
     estado.prioridade = "todas";
 
     estado.ordenacao = "nenhuma";
+
+    criarEfeitoClique();
 
     atualizarTela();
 
